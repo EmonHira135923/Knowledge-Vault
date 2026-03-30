@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2322c55e%22/><path d=%22M30 30h40v40H30z%22 fill=%22black%22/><circle cx=%2250%22 cy=%2250%22 r=%2210%22 fill=%22%2322c55e%22/></svg>"
+    />
+    <title>Knowledge Vault</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap");
+
+      :root {
+        --primary-glow: rgba(34, 197, 94, 0.3);
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #020617; /* Deepest Midnight */
+        color: #f8fafc;
+      }
+
+      /* Fixed Nav Glass Effect */
+      .nav-glass {
+        background: rgba(2, 6, 23, 0.8);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Animated Gradient Border for Hero */
+      .hero-gradient {
+        background: radial-gradient(circle at 50% 50%, #064e3b 0%, #020617 70%);
+      }
+
+      .neon-border {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .neon-border::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #22c55e, transparent);
+        animation: scan 3s linear infinite;
+      }
+
+      @keyframes scan {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      .text-glow {
+        text-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+      }
+    </style>
+  </head>
+  <body class="selection:bg-green-500 selection:text-black">
+    <header class="relative min-h-screen flex flex-col">
+      <nav class="nav-glass fixed top-0 left-0 w-full z-[100]">
+        <div
+          class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center"
+        >
+          <div class="flex items-center gap-3 group cursor-pointer">
+            <div
+              class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.4)] group-hover:rotate-12 transition-transform"
+            >
+              <i class="fa-solid fa-vault text-black text-xl"></i>
+            </div>
+            <span
+              class="text-2xl font-bold tracking-tighter text-white uppercase"
+              >Vault<span class="text-green-500 italic">_</span></span
+            >
+          </div>
+
+          <div class="hidden lg:block">
+            <ul
+              class="flex gap-12 text-xs font-bold uppercase tracking-[0.3em] text-slate-400"
+            >
+              <li>
+                <a
+                  href=""
+                  class="hover:text-green-400 transition-all relative group"
+                  >Features
+                  <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all"
+                  ></span
+                ></a>
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="hover:text-green-400 transition-all relative group"
+                  >How it Works
+                  <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all"
+                  ></span
+                ></a>
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="hover:text-green-400 transition-all relative group"
+                  >Why it's Different
+                  <span
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all"
+                  ></span
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex items-center gap-6">
+            <a
+              href="#"
+              class="hidden sm:block text-xs font-bold tracking-widest hover:text-green-500 transition-colors"
+              >LOGIN</a
+            >
+            <button
+              class="btn btn-md bg-green-600 hover:bg-green-500 text-black border-none rounded-none px-8 font-black uppercase tracking-tighter shadow-[0_0_25px_rgba(34,197,94,0.2)]"
+            >
+              Get Early Access
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <section
+        class="flex-1 hero-gradient flex items-center justify-center relative pt-20"
+      >
+        <div
+          class="absolute inset-0 opacity-10 pointer-events-none"
+          style="
+            background-image:
+              linear-gradient(#334155 1px, transparent 1px),
+              linear-gradient(90deg, #334155 1px, transparent 1px);
+            background-size: 50px 50px;
+          "
+        ></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <div
+            class="inline-flex items-center gap-3 px-4 py-2 border border-green-900/50 bg-green-950/20 rounded-full mb-10 animate-pulse"
+          >
+            <span
+              class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]"
+            ></span>
+            <span
+              class="text-[10px] font-black tracking-[0.4em] uppercase text-green-400"
+              >System: Ready for Access</span
+            >
+          </div>
+
+          <h1
+            class="text-6xl md:text-9xl font-extrabold text-white mb-8 tracking-[ -0.05em] leading-[0.85]"
+          >
+            Structured thinking,<br />
+            <span
+              class="text-green-500 text-glow italic font-light decoration-green-900 underline underline-offset-16"
+              >Not Just Note-Taking.</span
+            >
+          </h1>
+
+          <p
+            class="text-slate-400 text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto mb-14 font-light tracking-tight"
+          >
+            A private space to store notes, links, and learning
+            summaries—designed to help you
+            <span class="text-white border-b border-green-500/50"
+              >think clearly</span
+            >, connect ideas, and turn learning into long-term knowledge.
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row gap-8 justify-center items-center"
+          >
+            <button
+              class="w-full sm:w-auto h-20 px-12 bg-white text-black font-black uppercase tracking-[0.2em] text-sm hover:bg-green-500 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.5)] active:scale-95"
+            >
+              Start Building Your Vault
+              <i class="fa-solid fa-arrow-right-long ml-4"></i>
+            </button>
+            <button
+              class="w-full sm:w-auto h-20 px-12 bg-transparent border border-white/10 text-white font-bold uppercase tracking-[0.2em] text-sm hover:bg-white/5 transition-all"
+            >
+              <i class="fa-solid fa-play-stroke mr-3"></i> See How it Works
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#020617] to-transparent"
+        ></div>
+      </section>
+    </header>
+    <!-- main section -->
+    <!--  -->
+    <main>
+      <!-- Card Section -->
+      <section class="py-32 relative overflow-hidden bg-[#020617]">
+        <div
+          class="absolute top-0 right-0 w-[500px] h-[500px] bg-green-500/5 blur-[120px] -z-10"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-20">
+            <h2
+              class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter"
+            >
+              Notes don't fail,
+              <span class="text-green-500 italic">Structure does.</span>
+            </h2>
+            <p
+              class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light"
+            >
+              You're not bad at learning. Your tools just weren't built for how
+              knowledge actually works.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div
+              class="group p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-green-500/50 hover:bg-white/[0.08] transition-all duration-500"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-green-500 transition-all duration-500"
+              >
+                <i
+                  class="fa-solid fa-note-sticky text-green-500 text-2xl group-hover:text-black"
+                ></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-4 tracking-tight">
+                Scattered notes
+              </h3>
+              <p
+                class="text-slate-500 leading-relaxed group-hover:text-slate-300 transition-colors"
+              >
+                Your ideas live in 10 different apps, none of them connected.
+              </p>
+            </div>
+
+            <div
+              class="group p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-green-500/50 hover:bg-white/[0.08] transition-all duration-500"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-green-500 transition-all duration-500"
+              >
+                <i
+                  class="fa-solid fa-bookmark text-green-500 text-2xl group-hover:text-black"
+                ></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-4 tracking-tight">
+                Bookmark overload
+              </h3>
+              <p
+                class="text-slate-500 leading-relaxed group-hover:text-slate-300 transition-colors"
+              >
+                Hundreds of saved links you'll never revisit or remember.
+              </p>
+            </div>
+
+            <div
+              class="group p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-green-500/50 hover:bg-white/[0.08] transition-all duration-500"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-green-500 transition-all duration-500"
+              >
+                <i
+                  class="fa-solid fa-brain text-green-500 text-2xl group-hover:text-black"
+                ></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-4 tracking-tight">
+                No idea connections
+              </h3>
+              <p
+                class="text-slate-500 leading-relaxed group-hover:text-slate-300 transition-colors"
+              >
+                Insights stay isolated, never building into bigger
+                understanding.
+              </p>
+            </div>
+
+            <div
+              class="group p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-green-500/50 hover:bg-white/[0.08] transition-all duration-500"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-green-500 transition-all duration-500"
+              >
+                <i
+                  class="fa-solid fa-clock-rotate-left text-green-500 text-2xl group-hover:text-black"
+                ></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-4 tracking-tight">
+                Forgetting what you learned
+              </h3>
+              <p
+                class="text-slate-500 leading-relaxed group-hover:text-slate-300 transition-colors"
+              >
+                Knowledge fades because there's no system to retain it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- two side content -->
+      <section class="py-24 bg-[#020617] relative overflow-hidden">
+        <div
+          class="absolute top-1/2 left-0 w-72 h-72 bg-green-500/10 rounded-full blur-[100px] -z-10"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="flex flex-col lg:flex-row items-center gap-16">
+            <div class="flex-1 relative group">
+              <div
+                class="absolute -inset-4 bg-gradient-to-tr from-green-500/20 to-blue-500/20 rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-80 transition duration-1000"
+              ></div>
+              <div
+                class="relative bg-[#050505] border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl"
+              >
+                <img
+                  src="/assets/knowledge.png"
+                  alt="knowledge"
+                  class="w-full h-auto object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            </div>
+
+            <div class="flex-1">
+              <div
+                class="inline-block px-4 py-1.5 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold uppercase tracking-[0.3em] mb-6"
+              >
+                The Solution
+              </div>
+
+              <h1
+                class="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tighter leading-tight"
+              >
+                Your second brain, <br />
+                <span
+                  class="text-green-500 underline decoration-white/10 underline-offset-8"
+                  >structured by design.</span
+                >
+              </h1>
+
+              <p
+                class="text-slate-400 text-lg leading-relaxed mb-10 font-light italic border-l-2 border-green-500 pl-6"
+              >
+                Personal Knowledge Vault isn't another note-taking app. It's a
+                thinking environment where every note, link, and summary becomes
+                part of an interconnected web of understanding.
+              </p>
+
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <li
+                  class="flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  <span
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center"
+                  >
+                    <i class="fa-solid fa-check text-green-500 text-xs"></i>
+                  </span>
+                  <span class="text-slate-300 text-sm font-medium"
+                    >Bi-directional Linking</span
+                  >
+                </li>
+                <li
+                  class="flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  <span
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center"
+                  >
+                    <i class="fa-solid fa-check text-green-500 text-xs"></i>
+                  </span>
+                  <span class="text-slate-300 text-sm font-medium"
+                    >Contextual Search</span
+                  >
+                </li>
+                <li
+                  class="flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  <span
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center"
+                  >
+                    <i class="fa-solid fa-check text-green-500 text-xs"></i>
+                  </span>
+                  <span class="text-slate-300 text-sm font-medium"
+                    >Automated Tagging</span
+                  >
+                </li>
+                <li
+                  class="flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  <span
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center"
+                  >
+                    <i class="fa-solid fa-check text-green-500 text-xs"></i>
+                  </span>
+                  <span class="text-slate-300 text-sm font-medium"
+                    >Web Highlight Capture</span
+                  >
+                </li>
+                <li
+                  class="flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  <span
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center"
+                  >
+                    <i class="fa-solid fa-check text-green-500 text-xs"></i>
+                  </span>
+                  <span class="text-slate-300 text-sm font-medium"
+                    >Mind-Map Visuals</span
+                  >
+                </li>
+                <li
+                  class="flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  <span
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center"
+                  >
+                    <i class="fa-solid fa-check text-green-500 text-xs"></i>
+                  </span>
+                  <span class="text-slate-300 text-sm font-medium"
+                    >Private Cloud Storage</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- About Us -->
+      <section class="py-28 bg-[#020617] px-6">
+        <div class="max-w-5xl mx-auto relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-800 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"
+          ></div>
+
+          <div
+            class="relative bg-[#050505] border border-white/10 rounded-[3rem] p-12 md:p-20 text-center overflow-hidden"
+          >
+            <div
+              class="absolute -top-24 -left-24 w-64 h-64 bg-green-500/5 rounded-full blur-3xl"
+            ></div>
+            <div
+              class="absolute -bottom-24 -right-24 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"
+            ></div>
+
+            <div class="relative z-10">
+              <h1
+                class="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tighter leading-tight"
+              >
+                Ready to think <br class="hidden md:block" />
+                <span class="text-green-500 italic">more clearly?</span>
+              </h1>
+
+              <p
+                class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed"
+              >
+                Join thousands of learners who are building their personal
+                knowledge vaults. Start free, no credit card required.
+              </p>
+
+              <div class="flex flex-col items-center gap-6">
+                <button
+                  class="relative group btn btn-lg h-20 px-12 bg-green-600 hover:bg-green-500 text-black border-none rounded-2xl font-black uppercase tracking-widest shadow-[0_0_50px_-10px_rgba(34,197,94,0.5)] active:scale-95 transition-all"
+                >
+                  <span class="flex items-center gap-3">
+                    Get Early Access
+                    <i
+                      class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"
+                    ></i>
+                  </span>
+                  <span
+                    class="absolute inset-0 rounded-2xl ring-4 ring-green-500/20 animate-ping"
+                  ></span>
+                </button>
+
+                <p
+                  class="text-xs font-bold text-slate-500 tracking-[0.2em] uppercase"
+                >
+                  Free during early access
+                  <span class="mx-2 text-green-900">•</span> No credit card
+                  needed
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer  -->
+    <footer
+      class="py-16 border-t border-white/5 bg-[#020617] relative overflow-hidden"
+    >
+      <div
+        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-24 bg-green-500/5 blur-[100px] -z-10"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
+        <div class="flex items-center gap-6 mb-10">
+          <a
+            href="#"
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-green-500 hover:border-green-500/50 hover:bg-green-500/5 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-black"
+          >
+            <i class="fa-brands fa-x-twitter text-xl"></i>
+          </a>
+          <a
+            href="#"
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-green-500 hover:border-green-500/50 hover:bg-green-500/5 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-black"
+          >
+            <i class="fa-brands fa-github text-xl"></i>
+          </a>
+          <a
+            href="#"
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-green-500 hover:border-green-500/50 hover:bg-green-500/5 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-black"
+          >
+            <i class="fa-brands fa-linkedin-in text-xl"></i>
+          </a>
+          <a
+            href="#"
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-green-500 hover:border-green-500/50 hover:bg-green-500/5 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-black"
+          >
+            <i class="fa-brands fa-discord text-xl"></i>
+          </a>
+        </div>
+
+        <div
+          class="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-500 mb-8"
+        >
+          <a href="#" class="hover:text-white transition-colors">Privacy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms</a>
+          <a href="#" class="hover:text-white transition-colors">Contact</a>
+        </div>
+
+        <p
+          class="text-slate-600 text-sm font-medium tracking-tight text-center"
+        >
+          © 2026 Knowledge Vault. All rights reserved. <br class="sm:hidden" />
+          Built for the
+          <span class="text-green-800 font-bold tracking-[0.2em] uppercase"
+            >Future_of_Learning</span
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
